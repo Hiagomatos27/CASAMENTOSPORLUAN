@@ -13,15 +13,31 @@ import {
   Check,
   ArrowUpRight,
 } from "lucide-react";
-const heroImg = "https://casamentosporluan.lovable.app/__l5e/assets-v1/cdc7fe70-35e8-485b-9103-616cd16c1861/hero.jpg";
-const logoAsset = { url: "https://casamentosporluan.lovable.app/__l5e/assets-v1/819fbb91-b84d-406a-9638-00116649000d/logo.png" };
-const aboutImg = "https://casamentosporluan.lovable.app/__l5e/assets-v1/b8a2a41f-a662-4111-9030-a35c1d66692c/about.jpg";
-const g1 = "https://casamentosporluan.lovable.app/__l5e/assets-v1/c6c67722-76b9-445c-8ba8-7264cd6a1a4d/gallery-1.jpg";
-const g2 = "https://casamentosporluan.lovable.app/__l5e/assets-v1/257c1c38-9cb1-4eac-82a2-e7efe6cbcf61/gallery-2.jpg";
-const g3 = "https://casamentosporluan.lovable.app/__l5e/assets-v1/3d9a8ca8-e7cf-4dcc-b84e-6beba967e570/gallery-3.jpg";
-const g4 = "https://casamentosporluan.lovable.app/__l5e/assets-v1/8b7d0cc9-eb4a-4bbc-8ac9-c3eb9c144e18/gallery-4.jpg";
+import heroAsset from "@/assets/hero.jpg.asset.json";
+import logoAsset from "@/assets/logo.png.asset.json";
+const heroImg = heroAsset.url;
+import aboutAsset from "@/assets/about.jpg.asset.json";
+const aboutImg = aboutAsset.url;
+import g1Asset from "@/assets/gallery-1.jpg.asset.json";
+import g2Asset from "@/assets/gallery-2.jpg.asset.json";
+import g3Asset from "@/assets/gallery-3.jpg.asset.json";
+import g4Asset from "@/assets/gallery-4.jpg.asset.json";
+const g1 = g1Asset.url;
+const g2 = g2Asset.url;
+const g3 = g3Asset.url;
+const g4 = g4Asset.url;
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Casamentos por Luan — Proposta Exclusiva" },
+      {
+        name: "description",
+        content:
+          "Proposta exclusiva Casamentos por Luan. Filmes de casamento cinematográficos, emocionantes e atemporais.",
+      },
+    ],
+  }),
   component: Proposal,
 });
 
@@ -613,27 +629,15 @@ function Portfolio() {
         {/* Gallery strip */}
         <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-2">
           {[g1, g2, g3, g4].map((src, i) => (
-            <motion.a
+            <motion.img
               key={i}
-              href="https://www.instagram.com/casamentosporluan/"
-              target="_blank"
-              rel="noopener noreferrer"
               {...fadeLayer}
               transition={{ ...fadeLayer.transition, delay: i * 0.08 }}
-              className="block overflow-hidden group relative"
-            >
-              <img
-                src={src}
-                alt="Ver no Instagram"
-                loading="lazy"
-                className="w-full aspect-[3/4] object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-xs tracking-[0.25em] uppercase">
-                  Ver no Instagram
-                </span>
-              </div>
-            </motion.a>
+              src={src}
+              alt=""
+              loading="lazy"
+              className="w-full aspect-[3/4] object-cover grayscale"
+            />
           ))}
         </div>
       </div>
@@ -824,7 +828,7 @@ function FinalCta() {
           Será um prazer conhecer melhor vocês, tomar um café ou marcar uma reunião online
           para conversar sobre o grande dia.
         </motion.p>
-        <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.3 }} className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.3 }} className="mt-12">
           <a
             href="https://wa.me/5522997664132?text=Olá!%20Gostaria%20de%20conversar%20sobre%20a%20cobertura%20do%20meu%20casamento."
             target="_blank"
@@ -832,15 +836,6 @@ function FinalCta() {
             className="group inline-flex items-center gap-3 bg-background text-foreground px-10 py-5 text-xs tracking-[0.3em] uppercase hover:bg-background/90 transition-colors"
           >
             Falar no WhatsApp
-            <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
-          <a
-            href="https://www.instagram.com/casamentosporluan/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 border border-background/40 text-background px-10 py-5 text-xs tracking-[0.3em] uppercase hover:border-background hover:bg-background/10 transition-colors"
-          >
-            Ver no Instagram
             <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </motion.div>
@@ -868,14 +863,8 @@ function Footer() {
           </p>
         </div>
         <div className="text-sm text-stone space-y-1 md:text-right">
-          <a
-            href="https://www.instagram.com/casamentosporluan/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
-          >
-            @casamentosporluan
-          </a>
+          <p>contato@luanfilme.com</p>
+          <p>@luanfilme</p>
           <p className="pt-4 text-xs tracking-[0.2em] uppercase">
             © {new Date().getFullYear()} Casamentos por Luan
           </p>
