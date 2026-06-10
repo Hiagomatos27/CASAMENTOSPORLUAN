@@ -588,8 +588,9 @@ function AddOns() {
 /* -------------------------------------------------- PORTFOLIO */
 const films: { id: string; title: string; place: string; label?: string }[] = [
   { id: "ZjCXmDPL2e0", title: "Ana Laura & Neto", place: "2026" },
-  { id: "tMYVA_8A944", title: "Maju & João", place: "2026", label: "Trailer" },
+  { id: "tMYVA_8A944", title: "Maju & João", place: "2025", label: "Trailer" },
   { id: "jfKfPfyJRdk", title: "Beatriz & Henrique", place: "Toscana · 2024" },
+  { id: "X_GJN7daEKY", title: "Paola & Marcelo", place: "2025", label: "Trailer" },
 ];
 
 function Portfolio() {
